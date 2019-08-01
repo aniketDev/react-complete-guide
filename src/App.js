@@ -45,32 +45,37 @@ class App extends Component {
       color: "white"
     };
 
+    let persons = null;
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age}
+          />
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            onClick={this.switchNameHandler.bind(this, "Aniket Mandal!!")}
+          >
+            I love programming
+          </Person>
+          <Person
+            name={this.state.persons[2].name}
+            age={this.state.persons[2].age}
+            changed={this.nameChangeHandler}
+          />
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <h1>Hello react</h1>
         <button style={style} onClick={this.togglePersonsHandler}>
           Toggle Persons
         </button>
-        {this.state.showPersons ? (
-          <div>
-            <Person
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}
-            />
-            <Person
-              name={this.state.persons[1].name}
-              age={this.state.persons[1].age}
-              onClick={this.switchNameHandler.bind(this, "Aniket Mandal!!")}
-            >
-              I love programming
-            </Person>
-            <Person
-              name={this.state.persons[2].name}
-              age={this.state.persons[2].age}
-              changed={this.nameChangeHandler}
-            />
-          </div>
-        ) : null}
+        {persons}
       </div>
     );
   }
