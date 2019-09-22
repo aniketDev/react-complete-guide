@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import styles from "./App.css";
 import Radium from "radium";
 import Person from "./Person/Person";
 
@@ -88,7 +88,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className="styles.App">
         <h1>Hello react</h1>
         <p className={classes.join(" ")}>Welcome to rect complete guide</p>
         <button style={style} onClick={this.togglePersonsHandler}>
